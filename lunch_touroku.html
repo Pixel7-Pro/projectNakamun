@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <meta name="description" content="">
+    <title>ランチ選択 | タッチでランチ ♪</title>
+    <link rel="stylesheet" href="data/css/style.css">
+    <script src="data/effect/jquery3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="touroku.css">
+</head>
+
+<body>
+    <div class="top">
+        <div class="top_text">
+            <p>タッチでランチ！&nbsp;&nbsp;</p>
+            <a href="lunch_touroku.html"><p>ランチ表示&nbsp;&nbsp;</p></a>
+        <a href="dbselect.html"><p>データベース登録</p></a>
+            </div>
+    </div>
+    <div id="main">
+
+        <!--ランチ登録-->
+        <div class="main_gui">
+            <div class="lunch_touroku">
+            <p>メニューをとうろくしてね。</p>
+            <textarea cols="28" rows="5" id="reviewTextarea"></textarea>
+            <br>
+            <br>
+            <input type="submit" value="たっち" onclick="clickBtn_1()">
+            <input type="submit" value="くりあ" onclick="clickBtn_2()">
+            </div>
+
+        <!--ランチ登録 End-->
+
+
+        <!--給食５品目表示-->
+        <div class="lunch_torei">
+            <ul class="lunch_ue">
+                <li><img id="lunch_image03" src="data/img/common/none.png" alt=""></li>
+                <li><img id="lunch_image04" src="data/img/common/none.png" alt=""></li>
+                <li><img id="lunch_image02" src="data/img/common/none.png" alt=""></li>
+            </ul>
+
+            <ul class="lunch_shita">
+                <li><img id="lunch_image01" src="data/img/common/none.png" alt=""></li>
+                <li><img id="lunch_image05" src="data/img/common/none.png" alt=""></li>
+            </ul>
+        </div>
+        </div>
+        <!--給食５品目表示 End-->
+
+
+        <!--グローバル変数-->
+        <script>
+            //////////////////////////////////////
+            //献立５品目の変数
+            //////////////////////////////////////
+            let hinmoku_0 = "";
+            let hinmoku_1 = "";
+            let hinmoku_2 = "";
+            let hinmoku_3 = "";
+            let hinmoku_4 = "";
+
+        </script>
+
+
+        <!--献立メニュー取得-->
+        <script>
+            // テキストエリア（reviewTextarea）のコピーデータ取得
+            let reviewTextarea = document.getElementById("reviewTextarea");
+
+            function clickBtn_1() {
+                // テキストエリア（reviewTextarea）のデータ取得
+                let syutoku_data = reviewTextarea.value;
+
+                // 半角スペースで改行※例：せわりパン ぎゅうにゅう対策（文字列を全置換）
+                syutoku_data = syutoku_data.split(" ぎゅうにゅう").join("\n" + "ぎゅうにゅう");
+
+                // 比較による文字列有無の判定
+                // 「（ごはん）」が含まれていたら配列登録しない
+                if (syutoku_data.indexOf("（ごはん）") != -1) {
+                    syutoku_data = syutoku_data.split("（ごはん）").join("");
+                }
+                // 「地産地消の日」が含まれていたら配列登録しない
+                if (syutoku_data.indexOf("地産地消の日") != -1) {
+                    syutoku_data = syutoku_data.split("地産地消の日").join("");
+                }
+                // 「お月見献立」が含まれていたら配列登録しない
+                if (syutoku_data.indexOf("お月見献立") != -1) {
+                    syutoku_data = syutoku_data.split("お月見献立").join("");
+                }
+                // 「和食の日」が含まれていたら配列登録しない
+                if (syutoku_data.indexOf("和食の日") != -1) {
+                    syutoku_data = syutoku_data.split("和食の日").join("");
+                }
+
+
+                // 配列に分割（var str = "改行で分割する\nテキスト内容";）
+                var str = syutoku_data.split(/\r\n|\n/);
+
+                // 配列の空文字削除
+                str = str.filter(Boolean);
+
+                console.log(str);
+
+                //////////////////////////////////////
+                //配列から献立５品目を取得・イラスト表示
+                //////////////////////////////////////
+                hinmoku_0 = str[0];
+                hinmoku_1 = str[1];
+                hinmoku_2 = str[2];
+                hinmoku_3 = str[3];
+                hinmoku_4 = str[4];
+
+                //////////////////////////////////////
+                //GETリクエストでjavascriptファイルを読み込み
+                //////////////////////////////////////
+                //第１～5品目のメニュー
+                $.getScript("data/effect/lunch_1.js");
+                $.getScript("data/effect/lunch_2.js");
+                $.getScript("data/effect/lunch_3.js");
+                $.getScript("data/effect/lunch_4.js");
+                $.getScript("data/effect/lunch_5.js");
+            }
+
+        </script>
+
+
+        <!--クリアボタン処理-->
+        <script>
+            function clickBtn_2() {
+                reviewTextarea.value = "";
+                document.getElementById("lunch_image01").src = "data/img/common/none.png";
+                document.getElementById("lunch_image02").src = "data/img/common/none.png";
+                document.getElementById("lunch_image03").src = "data/img/common/none.png";
+                document.getElementById("lunch_image04").src = "data/img/common/none.png";
+                document.getElementById("lunch_image05").src = "data/img/common/none.png";
+            }
+
+        </script>
+
+    </div>
+    <!--main-->
+</body>
+
+</html>

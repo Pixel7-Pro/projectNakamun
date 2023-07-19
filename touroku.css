@@ -1,0 +1,23 @@
+.top {
+    padding: 0px;
+    font-size: 24px;
+    border-radius: 20px;
+    background-color: RGBA(48,241,57,0.6);
+    display: flex;
+    margin:10px;
+    padding-bottom:0px;
+    padding-top:0px;
+}
+.top_text{
+    display:flex;
+    margin-left:20px;
+}
+body{
+    margin:0px;
+    padding:0px;
+}
+.main_gui {
+    background-color: rgba(6, 65, 66, 0.11);
+    padding:20px;
+    border-radius: 20px;
+}

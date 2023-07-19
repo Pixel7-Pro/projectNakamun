@@ -1,0 +1,116 @@
+@charset "utf-8";
+/*@import url("default.css");*/
+
+/*==========================================
+body
+===========================================*/
+
+body {
+    font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo', '游ゴシック', 'Yu Gothic', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif, font-size: 200%;
+    background-image: url(../img/bg_img3.png);
+}
+
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/*==========================================
+main
+===========================================*/
+
+#main {
+    width: 750px;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+/*==========================================
+lunch_touroku
+===========================================*/
+
+div.lunch_touroku {
+    width: 800px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background-image: url(../img/lunch_touroku_3.png),
+                      url(../img/8.png);
+     background-size: contain ;
+     background-repeat: no-repeat ,
+                        no-repeat ;
+     background-position: right ,
+                          250px ;
+   
+   
+}
+
+div.lunch_touroku p {
+    margin-bottom: 5px;
+}
+
+div.lunch_touroku input {
+    width: 218px;
+    height: 50px;
+    font-size: 200%
+}
+
+/*==========================================
+lunch_torei
+===========================================*/
+
+div.lunch_torei {
+    width: 700px;
+    height: 539px;
+    margin: 0 auto;
+    background-image: url(../img/torei.png);
+    background-size: contain;
+}
+
+/*==========================================
+lunch_ue
+===========================================*/
+
+ul.lunch_ue {
+    width: 600px;
+    margin: 0 auto;
+    display: flex;
+    padding-top: 75px;
+}
+
+ul.lunch_ue li {
+    width: 180px;
+    height: 180px;
+    padding: 10px;
+}
+
+ul.lunch_ue li img {
+    width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+/*==========================================
+lunch_shita
+===========================================*/
+
+ul.lunch_shita {
+    width: 400px;
+    margin: 0 auto;
+    display: flex;
+}
+
+ul.lunch_shita li {
+    width: 250px;
+    height: 180px;
+    padding: 10px;
+}
+
+ul.lunch_shita li img {
+    width: 110%;
+    height: 110%;
+    vertical-align: bottom;
+}
