@@ -12,9 +12,10 @@
     display:flex;
     margin-left:20px;
 }
-body{
-    margin:0px;
-    padding:0px;
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 .main_gui {
     background-color: rgba(6, 65, 66, 0.11);
